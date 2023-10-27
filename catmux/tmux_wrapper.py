@@ -44,6 +44,7 @@ class TmuxWrapper:
     def split(self, target_window):
         """Splits the current pane into two"""
         self.tmux_call(["split-window", "-t", target_window])
+        self.tmux_call(["select-layout", "-t", target_window, "tiled"])
 
     def tmux_call(self, command_list):
         """Executes a tmux command"""
